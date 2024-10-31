@@ -1,0 +1,6 @@
+@CititesManager.WebAPI_HostAddress = http://localhost:5283
+
+GET {{CititesManager.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
