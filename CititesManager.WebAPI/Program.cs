@@ -1,11 +1,17 @@
 using CititesManager.WebAPI.DatabaseContext;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    // api endpoints request and response content types
+    options.Filters.Add(new ProducesAttribute("application/json"));
+    options.Filters.Add(new ConsumesAttribute("application/json"));
+}).AddXmlSerializerFormatters();
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
