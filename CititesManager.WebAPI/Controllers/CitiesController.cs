@@ -10,23 +10,40 @@ using CititesManager.WebAPI.Models;
 
 namespace CititesManager.WebAPI.Controllers
 {
+    /// <summary>
+    /// Cities Controller
+    /// </summary>
     public class CitiesController : CustomControllerBase
     {
         private readonly ApplicationDbContext _context;
 
+        /// <summary>
+        /// Cities Constructor
+        /// </summary>
+        /// <param name="context"></param>
         public CitiesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: api/Cities
+        /// <summary>
+        /// To get list of cities
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
+        [Produces("application/json")]
         public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
             return await _context.Cities.ToListAsync();
         }
 
         // GET: api/Cities/5
+        /// <summary>
+        /// Get City By Id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<City>> GetCity(Guid id)
         {
@@ -43,6 +60,12 @@ namespace CititesManager.WebAPI.Controllers
 
         // PUT: api/Cities/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Update City
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="city"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCity(Guid id, [Bind(nameof(City.CityId), nameof(City.CityName))] City city)
         {
@@ -85,6 +108,11 @@ namespace CititesManager.WebAPI.Controllers
 
         // POST: api/Cities
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Add City
+        /// </summary>
+        /// <param name="city">City and CityName</param>
+        /// <returns>Added City</returns>
         [HttpPost]
         public async Task<ActionResult<City>> PostCity([Bind(nameof(City.CityId), nameof(City.CityName))] City city)
         {
@@ -95,6 +123,11 @@ namespace CititesManager.WebAPI.Controllers
         }
 
         // DELETE: api/Cities/5
+        /// <summary>
+        /// Deletes City
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCity(Guid id)
         {
