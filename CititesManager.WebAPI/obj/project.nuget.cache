@@ -1,9 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "55NE1MqnI1vzAuhL82n4kPioRY3JK4vtcUHbLVQnYx479bfj79rJ9ery2tnSQadKiKfUq0TdRFOvUfF+XtezZQ==",
+  "dgSpecHash": "vYBFOxEmXRI8kPSvfAPcovBSWUgPdlHc/4zfqRW7n8Qkde7MH3y3Q9RLmJsHNeoS8mnCd2v4aC4/zCgLOBW+tQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\nipru\\Source\\Repos\\CitiesManager\\CititesManager.WebAPI\\CititesManager.WebAPI.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\nipru\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
+    "C:\\Users\\nipru\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
+    "C:\\Users\\nipru\\.nuget\\packages\\asp.versioning.mvc\\8.1.0\\asp.versioning.mvc.8.1.0.nupkg.sha512",
+    "C:\\Users\\nipru\\.nuget\\packages\\asp.versioning.mvc.apiexplorer\\8.1.0\\asp.versioning.mvc.apiexplorer.8.1.0.nupkg.sha512",
     "C:\\Users\\nipru\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\nipru\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
     "C:\\Users\\nipru\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",

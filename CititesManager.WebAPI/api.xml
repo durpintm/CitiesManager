@@ -4,31 +4,31 @@
         <name>CititesManager.WebAPI</name>
     </assembly>
     <members>
-        <member name="T:CititesManager.WebAPI.Controllers.CitiesController">
+        <member name="T:CititesManager.WebAPI.Controllers.v1.CitiesController">
             <summary>
             Cities Controller
             </summary>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.CitiesController.#ctor(CititesManager.WebAPI.DatabaseContext.ApplicationDbContext)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.#ctor(CititesManager.WebAPI.DatabaseContext.ApplicationDbContext)">
             <summary>
             Cities Constructor
             </summary>
             <param name="context"></param>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.CitiesController.GetCities">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.GetCities">
             <summary>
             To get list of cities
             </summary>
             <returns></returns>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.CitiesController.GetCity(System.Guid)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.GetCity(System.Guid)">
             <summary>
             Get City By Id
             </summary>
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.CitiesController.PutCity(System.Guid,CititesManager.WebAPI.Models.City)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.PutCity(System.Guid,CititesManager.WebAPI.Models.City)">
             <summary>
             Update City
             </summary>
@@ -36,18 +36,35 @@
             <param name="city"></param>
             <returns></returns>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.CitiesController.PostCity(CititesManager.WebAPI.Models.City)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.PostCity(CititesManager.WebAPI.Models.City)">
             <summary>
             Add City
             </summary>
             <param name="city">City and CityName</param>
             <returns>Added City</returns>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.CitiesController.DeleteCity(System.Guid)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.DeleteCity(System.Guid)">
             <summary>
             Deletes City
             </summary>
             <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:CititesManager.WebAPI.Controllers.v2.CitiesController">
+            <summary>
+            Cities Controller
+            </summary>
+        </member>
+        <member name="M:CititesManager.WebAPI.Controllers.v2.CitiesController.#ctor(CititesManager.WebAPI.DatabaseContext.ApplicationDbContext)">
+            <summary>
+            Cities Constructor
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:CititesManager.WebAPI.Controllers.v2.CitiesController.GetCities">
+            <summary>
+            To get list of cities
+            </summary>
             <returns></returns>
         </member>
         <member name="T:CititesManager.WebAPI.Migrations.Initial">

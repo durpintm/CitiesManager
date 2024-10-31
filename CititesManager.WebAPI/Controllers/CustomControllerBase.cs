@@ -2,9 +2,9 @@
 
 namespace CititesManager.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class CustomControllerBase:ControllerBase
+    [Route("api/v{version:apiVersion}/[controller]")]
+    public class CustomControllerBase : ControllerBase
     {
     }
 }

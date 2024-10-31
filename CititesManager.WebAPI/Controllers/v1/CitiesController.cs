@@ -1,18 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Asp.Versioning;
 using CititesManager.WebAPI.DatabaseContext;
 using CititesManager.WebAPI.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace CititesManager.WebAPI.Controllers
+namespace CititesManager.WebAPI.Controllers.v1
 {
     /// <summary>
     /// Cities Controller
     /// </summary>
+    [ApiVersion(1.0)]
     public class CitiesController : CustomControllerBase
     {
         private readonly ApplicationDbContext _context;
@@ -32,7 +29,7 @@ namespace CititesManager.WebAPI.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Produces("application/xml")]
+        //[Produces("application/xml")]
         public async Task<ActionResult<IEnumerable<City>>> GetCities()
         {
             return await _context.Cities.ToListAsync();

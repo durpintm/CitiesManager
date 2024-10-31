@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using CititesManager.WebAPI.DatabaseContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,11 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+
+builder.Services.AddApiVersioning(config =>
+{
+    config.ApiVersionReader = new UrlSegmentApiVersionReader();
+}).AddApiExplorer();
 
 // Swagger
 builder.Services.AddEndpointsApiExplorer(); // generates description for all endpoints
