@@ -4044,11 +4044,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nipru\\source\\repos\\CititesManagerSolution\\CititesManager.WebAPI\\CititesManager.WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\nipru\\Source\\Repos\\CitiesManager\\CititesManager.WebAPI\\CititesManager.WebAPI.csproj",
       "projectName": "CititesManager.WebAPI",
-      "projectPath": "C:\\Users\\nipru\\source\\repos\\CititesManagerSolution\\CititesManager.WebAPI\\CititesManager.WebAPI.csproj",
+      "projectPath": "C:\\Users\\nipru\\Source\\Repos\\CitiesManager\\CititesManager.WebAPI\\CititesManager.WebAPI.csproj",
       "packagesPath": "C:\\Users\\nipru\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nipru\\source\\repos\\CititesManagerSolution\\CititesManager.WebAPI\\obj\\",
+      "outputPath": "C:\\Users\\nipru\\Source\\Repos\\CitiesManager\\CititesManager.WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nipru\\AppData\\Roaming\\NuGet\\NuGet.Config",
