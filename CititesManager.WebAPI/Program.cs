@@ -1,5 +1,8 @@
 using Asp.Versioning;
-using CititesManager.WebAPI.DatabaseContext;
+using CitiesManager.Core.Identity;
+using CititesManager.Infrastructure.DatabaseContext;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -57,7 +60,25 @@ builder.Services.AddCors(options =>
         .WithHeaders("Authorization", "origin", "accept", "content-type")
         .WithMethods("GET", "POST", "PUT", "DELETE");
     });
+
+    options.AddPolicy("4100Client", policyBuilder =>
+    {
+        policyBuilder.WithOrigins(builder.Configuration.GetSection("AllowedOrigins2").Get<string[]>() ?? ["http://localhost:4100"])
+        .WithHeaders("Authorization", "origin")
+        .WithMethods("GET");
+    });
 });
+
+// Configuring Identity
+builder.Services.AddIdentity<ApplicationUser, ApplicationRole>(options =>
+{
+    options.Password.RequiredLength = 8;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireDigit = true;
+}).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders().AddUserStore<UserStore<ApplicationUser, ApplicationRole, ApplicationDbContext, Guid>>()
+.AddRoleStore<RoleStore<ApplicationRole, ApplicationDbContext, Guid>>();
 
 var app = builder.Build();
 
@@ -74,9 +95,12 @@ app.UseSwaggerUI(options =>
 
 }); // creates swagger UI for testing all web api endoints/action methods
 
+app.UseRouting();
 app.UseCors();
 
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();

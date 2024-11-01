@@ -1,9 +1,11 @@
-﻿using CititesManager.WebAPI.Models;
+﻿using CitiesManager.Core.Identity;
+using CititesManager.Core.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace CititesManager.WebAPI.DatabaseContext
+namespace CititesManager.Infrastructure.DatabaseContext
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, Guid>
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

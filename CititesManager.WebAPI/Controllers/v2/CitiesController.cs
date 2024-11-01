@@ -1,5 +1,5 @@
 ﻿using Asp.Versioning;
-using CititesManager.WebAPI.DatabaseContext;
+using CititesManager.Infrastructure.DatabaseContext;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

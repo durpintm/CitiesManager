@@ -9,7 +9,7 @@
             Cities Controller
             </summary>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.#ctor(CititesManager.WebAPI.DatabaseContext.ApplicationDbContext)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.#ctor(CititesManager.Infrastructure.DatabaseContext.ApplicationDbContext)">
             <summary>
             Cities Constructor
             </summary>
@@ -28,7 +28,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.PutCity(System.Guid,CititesManager.WebAPI.Models.City)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.PutCity(System.Guid,CititesManager.Core.Models.City)">
             <summary>
             Update City
             </summary>
@@ -36,7 +36,7 @@
             <param name="city"></param>
             <returns></returns>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.PostCity(CititesManager.WebAPI.Models.City)">
+        <member name="M:CititesManager.WebAPI.Controllers.v1.CitiesController.PostCity(CititesManager.Core.Models.City)">
             <summary>
             Add City
             </summary>
@@ -55,7 +55,7 @@
             Cities Controller
             </summary>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.v2.CitiesController.#ctor(CititesManager.WebAPI.DatabaseContext.ApplicationDbContext)">
+        <member name="M:CititesManager.WebAPI.Controllers.v2.CitiesController.#ctor(CititesManager.Infrastructure.DatabaseContext.ApplicationDbContext)">
             <summary>
             Cities Constructor
             </summary>
@@ -66,30 +66,6 @@
             To get list of cities
             </summary>
             <returns></returns>
-        </member>
-        <member name="T:CititesManager.WebAPI.Migrations.Initial">
-            <inheritdoc />
-        </member>
-        <member name="M:CititesManager.WebAPI.Migrations.Initial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CititesManager.WebAPI.Migrations.Initial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CititesManager.WebAPI.Migrations.Initial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="T:CititesManager.WebAPI.Migrations.CityNameRequired">
-            <inheritdoc />
-        </member>
-        <member name="M:CititesManager.WebAPI.Migrations.CityNameRequired.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CititesManager.WebAPI.Migrations.CityNameRequired.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
-        </member>
-        <member name="M:CititesManager.WebAPI.Migrations.CityNameRequired.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
         </member>
     </members>
 </doc>

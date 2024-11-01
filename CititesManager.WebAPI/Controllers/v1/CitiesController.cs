@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
-using CititesManager.WebAPI.DatabaseContext;
-using CititesManager.WebAPI.Models;
+using CititesManager.Core.Models;
+using CititesManager.Infrastructure.DatabaseContext;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +11,7 @@ namespace CititesManager.WebAPI.Controllers.v1
     /// Cities Controller
     /// </summary>
     [ApiVersion(1.0)]
+    [EnableCors("4100Client")]
     public class CitiesController : CustomControllerBase
     {
         private readonly ApplicationDbContext _context;

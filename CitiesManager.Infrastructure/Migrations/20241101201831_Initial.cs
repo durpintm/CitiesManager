@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace CititesManager.WebAPI.Migrations
+namespace CitiesManager.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class Initial : Migration
@@ -30,8 +30,8 @@ namespace CititesManager.WebAPI.Migrations
                 columns: new[] { "CityId", "CityName" },
                 values: new object[,]
                 {
-                    { new Guid("5831fa7b-5d8e-4627-abb1-bcff99bbaa20"), "Toronto" },
-                    { new Guid("fd45a30a-c6a9-48ec-8168-2b1337394767"), "Dallas" }
+                    { new Guid("777e431e-1dcc-4893-9513-08f74f1f2895"), "Dallas" },
+                    { new Guid("d4b1fb6e-ebe9-434c-82b4-82319a1b66a7"), "Toronto" }
                 });
         }
 

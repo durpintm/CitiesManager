@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CititesManager.WebAPI.Models
+namespace CititesManager.Core.Models
 {
     public class City
     {
