@@ -51,9 +51,11 @@ builder.Services.AddSwaggerGen(options =>
 
 builder.Services.AddCors(options =>
 {
-    options.AddDefaultPolicy(builder =>
+    options.AddDefaultPolicy(policyBuilder =>
     {
-        builder.WithOrigins("http://localhost:5188");
+        policyBuilder.WithOrigins(builder.Configuration.GetSection("AllowedOrigins").Get<string[]>() ?? ["http://localhost:4200"])
+        .WithHeaders("Authorization", "origin", "accept", "content-type")
+        .WithMethods("GET", "POST", "PUT", "DELETE");
     });
 });
 
