@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vYBFOxEmXRI8kPSvfAPcovBSWUgPdlHc/4zfqRW7n8Qkde7MH3y3Q9RLmJsHNeoS8mnCd2v4aC4/zCgLOBW+tQ==",
+  "dgSpecHash": "QuUIgeK+HXwa6QKVuNESByiFtMbFVnrsp2ciZSwTy18i06wqbobpproqCAWmKzOWLI+9K9ewJCpGSPSAM9TGAA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\nipru\\Source\\Repos\\CitiesManager\\CititesManager.WebAPI\\CititesManager.WebAPI.csproj",
+  "projectFilePath": "C:\\Users\\nipru\\source\\repos\\CitiesManager\\CititesManager.WebAPI\\CititesManager.WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nipru\\.nuget\\packages\\asp.versioning.abstractions\\8.1.0\\asp.versioning.abstractions.8.1.0.nupkg.sha512",
     "C:\\Users\\nipru\\.nuget\\packages\\asp.versioning.http\\8.1.0\\asp.versioning.http.8.1.0.nupkg.sha512",
