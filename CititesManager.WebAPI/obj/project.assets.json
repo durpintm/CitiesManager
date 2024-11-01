@@ -3011,7 +3011,10 @@
         },
         "runtime": {
           "bin/placeholder/CitiesManager.Core.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "CitiesManager.Infrastructure/1.0.0": {
         "type": "project",
