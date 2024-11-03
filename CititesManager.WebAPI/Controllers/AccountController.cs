@@ -2,6 +2,7 @@
 using Asp.Versioning;
 using CitiesManager.Core.DTO;
 using CitiesManager.Core.Identity;
+using CitiesManager.Core.ServiceContracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,7 @@ namespace CititesManager.WebAPI.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
+        private readonly IJwtService _jwtService;
 
         /// <summary>
         /// 
@@ -25,11 +27,13 @@ namespace CititesManager.WebAPI.Controllers
         /// <param name="userManager"></param>
         /// <param name="signInManager"></param>
         /// <param name="roleManager"></param>
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager)
+        /// <param name="jwtService"></param>
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager, IJwtService jwtService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _roleManager = roleManager;
+            _jwtService = jwtService;
         }
 
         /// <summary>
@@ -37,8 +41,8 @@ namespace CititesManager.WebAPI.Controllers
         /// </summary>
         /// <param name="registerDTO"></param>
         /// <returns></returns>
-        [HttpPost]
-        public async Task<ActionResult<ApplicationUser>> PostRegister(RegisterDTO registerDTO)
+        [HttpPost("register")]
+        public async Task<IActionResult> PostRegister(RegisterDTO registerDTO)
         {
             if (ModelState.IsValid == false)
             {
@@ -60,7 +64,9 @@ namespace CititesManager.WebAPI.Controllers
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
-                return Ok(user);
+
+                var authenticationResponse = _jwtService.CreateJwtToken(user);
+                return Ok(authenticationResponse);
             }
             else
             {
@@ -114,7 +120,9 @@ namespace CititesManager.WebAPI.Controllers
                 {
                     return NoContent();
                 }
-                return Ok(new { personName = user.PersonName, email = user.Email });
+
+                var authenticationResponse = _jwtService.CreateJwtToken(user);
+                return Ok(authenticationResponse);
             }
             else
             {

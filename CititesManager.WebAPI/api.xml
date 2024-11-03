@@ -9,13 +9,14 @@
             
             </summary>
         </member>
-        <member name="M:CititesManager.WebAPI.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{CitiesManager.Core.Identity.ApplicationRole})">
+        <member name="M:CititesManager.WebAPI.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{CitiesManager.Core.Identity.ApplicationRole},CitiesManager.Core.ServiceContracts.IJwtService)">
             <summary>
             
             </summary>
             <param name="userManager"></param>
             <param name="signInManager"></param>
             <param name="roleManager"></param>
+            <param name="jwtService"></param>
         </member>
         <member name="M:CititesManager.WebAPI.Controllers.AccountController.PostRegister(CitiesManager.Core.DTO.RegisterDTO)">
             <summary>
@@ -43,6 +44,11 @@
             
             </summary>
             <returns></returns>
+        </member>
+        <member name="T:CititesManager.WebAPI.Controllers.CustomControllerBase">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:CititesManager.WebAPI.Controllers.v1.CitiesController">
             <summary>
