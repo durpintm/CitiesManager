@@ -4,6 +4,46 @@
         <name>CititesManager.WebAPI</name>
     </assembly>
     <members>
+        <member name="T:CititesManager.WebAPI.Controllers.AccountController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:CititesManager.WebAPI.Controllers.AccountController.#ctor(Microsoft.AspNetCore.Identity.UserManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.SignInManager{CitiesManager.Core.Identity.ApplicationUser},Microsoft.AspNetCore.Identity.RoleManager{CitiesManager.Core.Identity.ApplicationRole})">
+            <summary>
+            
+            </summary>
+            <param name="userManager"></param>
+            <param name="signInManager"></param>
+            <param name="roleManager"></param>
+        </member>
+        <member name="M:CititesManager.WebAPI.Controllers.AccountController.PostRegister(CitiesManager.Core.DTO.RegisterDTO)">
+            <summary>
+            
+            </summary>
+            <param name="registerDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CititesManager.WebAPI.Controllers.AccountController.IsEmailAlreadyRegistered(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CititesManager.WebAPI.Controllers.AccountController.PostLogin(CitiesManager.Core.DTO.LoginDTO)">
+            <summary>
+            
+            </summary>
+            <param name="loginDTO"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CititesManager.WebAPI.Controllers.AccountController.GetLogout">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:CititesManager.WebAPI.Controllers.v1.CitiesController">
             <summary>
             Cities Controller

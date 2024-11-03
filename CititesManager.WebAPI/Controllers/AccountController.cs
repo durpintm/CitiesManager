@@ -114,7 +114,7 @@ namespace CititesManager.WebAPI.Controllers
                 {
                     return NoContent();
                 }
-                return Ok(new { personName = user, email = user.Email });
+                return Ok(new { personName = user.PersonName, email = user.Email });
             }
             else
             {
