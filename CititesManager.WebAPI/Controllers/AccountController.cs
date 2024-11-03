@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CititesManager.WebAPI.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [AllowAnonymous]
     [ApiVersion("1.0")]
     public class AccountController : CustomControllerBase
@@ -16,6 +19,12 @@ namespace CititesManager.WebAPI.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly RoleManager<ApplicationRole> _roleManager;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userManager"></param>
+        /// <param name="signInManager"></param>
+        /// <param name="roleManager"></param>
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, RoleManager<ApplicationRole> roleManager)
         {
             _userManager = userManager;
@@ -23,6 +32,11 @@ namespace CititesManager.WebAPI.Controllers
             _roleManager = roleManager;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="registerDTO"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult<ApplicationUser>> PostRegister(RegisterDTO registerDTO)
         {
@@ -56,6 +70,11 @@ namespace CititesManager.WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> IsEmailAlreadyRegistered(string email)
         {
@@ -69,6 +88,50 @@ namespace CititesManager.WebAPI.Controllers
             {
                 return Ok(false);
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="loginDTO"></param>
+        /// <returns></returns>
+        [HttpPost("login")]
+        public async Task<IActionResult> PostLogin(LoginDTO loginDTO)
+        {
+            if (ModelState.IsValid == false)
+            {
+                string errorMessage = string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+
+                return Problem(errorMessage);
+            }
+
+            var result = await _signInManager.PasswordSignInAsync(loginDTO.Email, loginDTO.Password, isPersistent: false, lockoutOnFailure: false);
+
+            if (result.Succeeded)
+            {
+                ApplicationUser? user = await _userManager.FindByEmailAsync(loginDTO.Email);
+
+                if (user == null)
+                {
+                    return NoContent();
+                }
+                return Ok(new { personName = user, email = user.Email });
+            }
+            else
+            {
+                return Problem("Invalid email or password");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+
+        [HttpGet("logout")]
+        public async Task<ActionResult<ApplicationUser>> GetLogout()
+        {
+            await _signInManager.SignOutAsync();
+            return NoContent();
         }
     }
 }
