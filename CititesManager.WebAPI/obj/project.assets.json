@@ -8278,6 +8278,7 @@
       "Asp.Versioning.Mvc.ApiExplorer >= 8.1.0",
       "CitiesManager.Core >= 1.0.0",
       "CitiesManager.Infrastructure >= 1.0.0",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 8.0.10",
       "Microsoft.AspNetCore.OpenApi >= 8.0.10",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.10",
@@ -8343,6 +8344,10 @@
           "Asp.Versioning.Mvc.ApiExplorer": {
             "target": "Package",
             "version": "[8.1.0, )"
+          },
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[8.0.10, )"
           },
           "Microsoft.AspNetCore.OpenApi": {
             "target": "Package",
