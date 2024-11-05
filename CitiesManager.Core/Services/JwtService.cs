@@ -25,7 +25,7 @@ namespace CitiesManager.Core.Services
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // Unique Id for each Jwt token
-                new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()), // Date and Time of token generation
+                new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()), // Date and Time of token generation
                 new Claim(ClaimTypes.Name, user.PersonName!), // Unique name identifier of the user (PersonName)
                 new Claim(ClaimTypes.NameIdentifier, user.Email!) // Unique name identifier of the user (Email)
             };
