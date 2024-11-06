@@ -45,6 +45,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:CititesManager.WebAPI.Controllers.AccountController.GenerateNewAccessToken(CitiesManager.Core.DTO.TokenModel)">
+            <summary>
+            
+            </summary>
+            <param name="tokenModel"></param>
+            <returns></returns>
+        </member>
         <member name="T:CititesManager.WebAPI.Controllers.CustomControllerBase">
             <summary>
             

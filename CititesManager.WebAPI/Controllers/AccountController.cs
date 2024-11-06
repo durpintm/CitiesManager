@@ -6,6 +6,7 @@ using CitiesManager.Core.ServiceContracts;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 
 namespace CititesManager.WebAPI.Controllers
 {
@@ -147,6 +148,48 @@ namespace CititesManager.WebAPI.Controllers
         {
             await _signInManager.SignOutAsync();
             return NoContent();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tokenModel"></param>
+        /// <returns></returns>
+        [HttpPost("generate-new-jwt-token")]
+        public async Task<IActionResult> GenerateNewAccessToken(TokenModel tokenModel)
+        {
+            if (tokenModel == null)
+            {
+                return BadRequest("Invalid client request");
+            }
+
+            string? jwtToken = tokenModel.Token;
+            string? refresToken = tokenModel.RefreshToken;
+
+            ClaimsPrincipal? principal = _jwtService.GetPrincipalFromJwtToken(jwtToken);
+
+            if (principal is null)
+            {
+                return BadRequest("Invalid jwt access token");
+            }
+
+            string? email = principal.FindFirstValue(ClaimTypes.Email);
+
+            ApplicationUser? user = await _userManager.FindByEmailAsync(email ?? "");
+
+            if (user is null || user.RefreshToken != refresToken || user.RefreshTokenExpiration <= DateTime.Now)
+            {
+                return BadRequest("Invalid refresh token");
+            }
+
+            AuthenticationResponse authenticationResponse = _jwtService.CreateJwtToken(user);
+
+            user.RefreshToken = authenticationResponse.RefreshToken;
+            user.RefreshTokenExpiration = authenticationResponse.RefreshTokenExpiration;
+
+            await _userManager.UpdateAsync(user);
+
+            return Ok(authenticationResponse);
         }
     }
 }

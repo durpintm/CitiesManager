@@ -28,7 +28,8 @@ namespace CitiesManager.Core.Services
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // Unique Id for each Jwt token
                 new Claim(JwtRegisteredClaimNames.Iat, DateTimeOffset.UtcNow.ToUnixTimeSeconds().ToString()), // Date and Time of token generation
                 new Claim(ClaimTypes.Name, user.PersonName!), // Unique name identifier of the user (PersonName)
-                new Claim(ClaimTypes.NameIdentifier, user.Email!) // Unique name identifier of the user (Email)
+                new Claim(ClaimTypes.NameIdentifier, user.Email!), // Unique name identifier of the user (Email)
+                new Claim(ClaimTypes.Email, user.Email!) // Unique name identifier of the user (Email)
             };
 
             SymmetricSecurityKey securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
@@ -51,6 +52,31 @@ namespace CitiesManager.Core.Services
             randomNumberGenerator.GetBytes(bytes);
 
             return Convert.ToBase64String(bytes);
+        }
+
+        public ClaimsPrincipal? GetPrincipalFromJwtToken(string? token)
+        {
+            var tokenValidationParameters = new TokenValidationParameters()
+            {
+                ValidateAudience = true,
+                ValidAudience = _configuration["Jwt:Audience"],
+                ValidateIssuer = true,
+                ValidIssuer = _configuration["Jwt:Issuer"],
+                ValidateIssuerSigningKey = true,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!)),
+                ValidateLifetime = false
+            };
+
+            JwtSecurityTokenHandler jwtSecurityTokenHandler = new JwtSecurityTokenHandler();
+
+            ClaimsPrincipal claimsPrincipal = jwtSecurityTokenHandler.ValidateToken(token, tokenValidationParameters, out SecurityToken securityToken);
+
+            if (securityToken is not JwtSecurityToken jwtSecurityToken || !jwtSecurityToken.Header.Alg.Equals(SecurityAlgorithms.HmacSha256, StringComparison.InvariantCultureIgnoreCase))
+            {
+                throw new SecurityTokenException("Invalid Token");
+            }
+
+            return claimsPrincipal;
         }
     }
 }
